@@ -1,0 +1,34 @@
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\TVO API Reader.exe.config
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\TVO API Reader.exe
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\TVO API Reader.pdb
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\FluentModbus.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\Microsoft.Bcl.Cryptography.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\Newtonsoft.Json.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Buffers.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Data.SQLite.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Formats.Asn1.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.IO.Ports.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Memory.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Numerics.Vectors.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Security.Cryptography.Pkcs.dll
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\FluentModbus.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\Microsoft.Bcl.Cryptography.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\Newtonsoft.Json.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Buffers.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Data.SQLite.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Formats.Asn1.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.IO.Ports.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Memory.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Numerics.Vectors.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\bin\Debug\System.Security.Cryptography.Pkcs.xml
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\obj\Debug\TVO API Reader.csproj.AssemblyReference.cache
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\obj\Debug\TVO_API_Reader.Properties.Resources.resources
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\obj\Debug\TVO API Reader.csproj.GenerateResource.cache
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\obj\Debug\TVO API Reader.csproj.CoreCompileInputs.cache
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\obj\Debug\TVO API .6955027B.Up2Date
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\obj\Debug\TVO API Reader.exe
+D:\TVO\TVO API Reader\update TVO 3A\TVO_API_Reader_3A_v2\TVO API Reader\obj\Debug\TVO API Reader.pdb

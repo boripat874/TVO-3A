@@ -1,0 +1,1536 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PdfSharp.OpenType</name>
+    </assembly>
+    <members>
+        <member name="T:PdfSharp.Internal.OpenType.CharacterMap">
+            <summary>
+            Filled by cmap type 4 and 12.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.CharacterMap.SetGlyphCount(System.UInt16)">
+            <summary> 
+            Glyph count is used for validating cmap contents.
+            If we discover that glyph index we are about to set or return is outside of glyph range, 
+            we throw an exception.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.CodePointGlyphIndexPair">
+            <summary>
+            The combination of a Unicode code point and the glyph index of this code point in a particular font face.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.CodePointGlyphIndexPair.#ctor(System.Int32,System.UInt16)">
+            <summary>
+            The combination of a Unicode code point and the glyph index of this code point in a particular font face.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.CodePointGlyphIndexPair.CodePoint">
+            <summary>
+            The Unicode code point of the Character value.
+            The code point can be 0 to indicate that the original character is not a valid UTF-32 code unit.
+            This can happen when a string contains a single high or low surrogate without its counterpart.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.CodePointGlyphIndexPair.GlyphIndex">
+            <summary>
+            The glyph index of the code point for a specific OpenType font.
+            The value is 0 if the specific font has no glyph for the code point.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.GlyphIndexGlyphColorRecordPair">
+            <summary>
+            The combination of a glyph index and its glyph record in the color table, if it exists.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.GlyphIndexGlyphColorRecordPair.#ctor(System.UInt16,System.Nullable{PdfSharp.Internal.OpenType.ColorTable.GlyphRecord})">
+            <summary>
+            The combination of a glyph index and its glyph record in the color table, if it exists.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.GlyphIndexGlyphColorRecordPair.GlyphIndex">
+            <summary>
+            The glyph index.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.GlyphIndexGlyphColorRecordPair.ColorRecord">
+            <summary>
+            The color-record of the glyph if provided by the font.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.FontTechnology">
+            <summary>
+            Identifies the technology of an OpenType font file.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.FontTechnology.PostscriptOutlines">
+            <summary>
+            Font is Adobe Postscript font in CFF.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.FontTechnology.TrueTypeOutlines">
+            <summary>
+            Font is a TrueType font.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.FontTechnology.TrueTypeCollection">
+            <summary>
+            Font is a TrueType font collection.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.TableTagNames">
+            <summary>
+            Case-sensitive TrueType font table names.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.CMap">
+            <summary>
+            Character to glyph mapping.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Head">
+            <summary>
+            Font header.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.HHea">
+            <summary>
+            Horizontal header.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.HMtx">
+            <summary>
+            Horizontal Metrics.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.MaxP">
+            <summary>
+            Maximum profile.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Name">
+            <summary>
+            Naming table.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.OS2">
+            <summary>
+            OS/2 and Windows specific Metrics.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Post">
+            <summary>
+            PostScript information.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Cvt">
+            <summary>
+            Control Value Table.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Fpgm">
+            <summary>
+            Font program.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Glyf">
+            <summary>
+            Glyph data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Loca">
+            <summary>
+            Index to location.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Prep">
+            <summary>
+            CVT Program.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Cff">
+            <summary>
+            PostScript font program (compact font format).
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.VOrg">
+            <summary>
+            Vertical Origin.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.EBDT">
+            <summary>
+            Embedded bitmap data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.EBLC">
+            <summary>
+            Embedded bitmap location data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.EBSC">
+            <summary>
+            Embedded bitmap scaling data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.BASE">
+            <summary>
+            Baseline data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.GDEF">
+            <summary>
+            Glyph definition data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.GPOS">
+            <summary>
+            Glyph positioning data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.GSUB">
+            <summary>
+            Glyph substitution data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.JSTF">
+            <summary>
+            Justification data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.COLR">
+            <summary>
+            Color table.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.CPAL">
+            <summary>
+            Color pallet table.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.DSIG">
+            <summary>
+            Digital signature.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Gasp">
+            <summary>
+            Grid-fitting/Scan-conversion.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Hdmx">
+            <summary>
+            Horizontal device Metrics.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.Kern">
+            <summary>
+            Kerning.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.LTSH">
+            <summary>
+            Linear threshold data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.PCLT">
+            <summary>
+            PCL 5 data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.VDMX">
+            <summary>
+            Vertical device Metrics.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.VHea">
+            <summary>
+            Vertical Header.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableTagNames.VMtx">
+            <summary>
+            Vertical Metrics.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.SimpleGlyphFlags.ON_CURVE_POINT">
+            <summary>
+            Bit 0: If set, the point is on the curve; otherwise, it is off the curve.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.SimpleGlyphFlags.X_SHORT_VECTOR">
+            <summary>
+            Bit 1: If set, the corresponding x-coordinate is 1 byte long, and the sign is determined
+            by the X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR flag. If not set, its interpretation depends
+            on the X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR flag: If that other flag is set, the x-coordinate
+            is the same as the previous x-coordinate, and no element is added to the xCoordinates
+            array. If both flags are not set, the corresponding element in the xCoordinates array is
+            two bytes and interpreted as a signed integer. See the description of the
+            X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR flag for additional information.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.SimpleGlyphFlags.Y_SHORT_VECTOR">
+            <summary>
+            Bit 2: If set, the corresponding y-coordinate is 1 byte long, and the sign is determined
+            by the Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR flag. If not set, its interpretation depends
+            on the Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR flag: If that other flag is set, the y-coordinate
+            is the same as the previous y-coordinate, and no element is added to the yCoordinates
+            array. If both flags are not set, the corresponding element in the yCoordinates array is
+            two bytes and interpreted as a signed integer. See the description of the
+            Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR flag for additional information.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.SimpleGlyphFlags.REPEAT_FLAG">
+            <summary>
+            Bit 3: If set, the next byte (read as unsigned) specifies the number of additional times
+            this flag byte is to be repeated in the logical flags array — that is, the number of
+            additional logical flag entries inserted after this entry. (In the expanded logical
+            array, this bit is ignored.) In this way, the number of flags listed can be smaller
+            than the number of points in the glyph description.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.SimpleGlyphFlags.X_IS_SAME_OR_POSITIVE_X_SHORT_VECTOR">
+            <summary>
+            Bit 4: This flag has two meanings, depending on how the X_SHORT_VECTOR flag is set.
+            If X_SHORT_VECTOR is set, this bit describes the sign of the value, with 1 equaling
+            positive and 0 negative. If X_SHORT_VECTOR is not set and this bit is set, then the
+            current x-coordinate is the same as the previous x-coordinate. If X_SHORT_VECTOR is
+            not set and this bit is also not set, the current x-coordinate is a signed 16-bit
+            delta vector.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.SimpleGlyphFlags.Y_IS_SAME_OR_POSITIVE_Y_SHORT_VECTOR">
+            <summary>
+            Bit 5: This flag has two meanings, depending on how the Y_SHORT_VECTOR flag is set.
+            If Y_SHORT_VECTOR is set, this bit describes the sign of the value, with 1 equaling
+            positive and 0 negative. If Y_SHORT_VECTOR is not set and this bit is set, then the
+            current y-coordinate is the same as the previous y-coordinate. If Y_SHORT_VECTOR is
+            not set and this bit is also not set, the current y-coordinate is a signed 16-bit
+            delta vector.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.SimpleGlyphFlags.OVERLAP_SIMPLE">
+            <summary>
+            Bit 6: If set, contours in the glyph description could overlap. Use of this flag is
+            not required — that is, contours may overlap without having this flag set. When used,
+            it must be set on the first flag byte for the glyph. See additional details below.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.SimpleGlyphFlags.Reserved">
+            <summary>
+            Bit 7 is reserved: set to zero.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.ARG_1_AND_2_ARE_WORDS">
+            <summary>
+            Bit 0: If this is set, the arguments are 16-bit (uint16 or int16);
+            otherwise, they are bytes (uint8 or int8).
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.ARGS_ARE_XY_VALUES">
+            <summary>
+            Bit 1: If this is set, the arguments are signed xy values;
+            otherwise, they are unsigned point numbers.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.ROUND_XY_TO_GRID">
+            <summary>
+            Bit 2: If set and ARGS_ARE_XY_VALUES is also set, the xy values are rounded
+            to the nearest grid line. Ignored if ARGS_ARE_XY_VALUES is not set.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.WE_HAVE_A_SCALE">
+            <summary>
+            Bit 3: This indicates that there is a simple scale for the component.
+            Otherwise, scale = 1.0.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.MORE_COMPONENTS">
+            <summary>
+            Bit 5: Indicates at least one more glyph after this one.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.WE_HAVE_AN_X_AND_Y_SCALE">
+            <summary>
+            Bit 6: The x direction will use a different scale from the y direction.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.WE_HAVE_A_TWO_BY_TWO">
+            <summary>
+            Bit 7: There is a 2 by 2 transformation that will be used to scale the component.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.WE_HAVE_INSTRUCTIONS">
+            <summary>
+            Bit 8: Following the last component are instructions for the composite glyph.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.USE_MY_METRICS">
+            <summary>
+            Bit 9: If set, this forces the aw and lsb (and rsb) for the composite to be equal
+            to those from this component glyph. This works for hinted and unhinted glyphs.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.OVERLAP_COMPOUND">
+            <summary>
+            Bit 10: If set, the components of the compound glyph overlap. Use of this flag is not
+            required — that is, component glyphs may overlap without having this flag set. When used,
+            it must be set on the flag word for the first component. Some rasterizer implementations
+            may require fonts to use this flag to obtain correct behavior — see additional remarks,
+            above, for the similar OVERLAP_SIMPLE flag used in simple-glyph descriptions.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.SCALED_COMPONENT_OFFSET">
+            <summary>
+            Bit 11: The composite is designed to have the component offset scaled.
+            Ignored if ARGS_ARE_XY_VALUES is not set.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.UNSCALED_COMPONENT_OFFSET">
+            <summary>
+            Bit 12: The composite is designed not to have the component offset scaled.
+            Ignored if ARGS_ARE_XY_VALUES is not set.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.ComponentGlyphFlags.Reserved">
+            <summary>
+            Bits 4, 13, 14 and 15 are reserved: set to 0.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.GlyphDataTable">
+            <summary>
+            This table contains information that describes the glyphs in the font in the TrueType outline format.
+            Information regarding the rasterizer (scaler) refers to the TrueType rasterizer. 
+            http://www.microsoft.com/typography/otspec/glyf.htm
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.GlyphDataTable.Read">
+            <summary>
+            Converts the bytes in a handy representation.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.GlyphDataTable.GetGlyphData(System.Int32)">
+            <summary>
+            Gets the data of the specified glyph.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.GlyphDataTable.GetGlyphSize(System.Int32)">
+            <summary>
+            Gets the size of the byte array that defines the glyph.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.GlyphDataTable.GetOffset(System.Int32)">
+            <summary>
+            Gets the offset of the specified glyph relative to the first byte of the font image.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.GlyphDataTable.CompleteGlyphClosure(System.Collections.Generic.Dictionary{System.UInt16,System.Object})">
+            <summary>
+            Adds for all composite glyphs, the glyphs the composite one is made of.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.GlyphDataTable.AddCompositeGlyphs(System.Collections.Generic.Dictionary{System.UInt16,System.Object},System.Int32)">
+            <summary>
+            If the specified glyph is a composite glyph add the glyphs it is made of to the glyph table.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.GlyphDataTable.GetGlyphHeader(System.UInt16)">
+            <summary>
+            Gets the glyph header for the specified glyph.
+            Used in PDFsharp Graphics to calculate right and bottom side bearings.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.GlyphDataTable.PrepareForCompilation">
+            <summary>
+            Prepares the font table to be compiled into its binary representation.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.GlyphDataTable.Write(PdfSharp.Internal.OpenType.OpenTypeFontWriter)">
+            <summary>
+            Converts the font into its binary representation.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.GlyphHeader.numberOfContours">
+            <summary>
+            If the number of contours is greater than or equal to zero, this is a simple glyph.
+            If negative, this is a composite glyph — the value -1 should be used for composite glyphs.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.IRefFontTable">
+            <summary>
+            Represents an indirect reference to an existing font table in a font image.
+            Used to create binary copies of an existing font table that is not modified.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.IRefFontTable.PrepareForCompilation">
+            <summary>
+            Prepares the font table to be compiled into its binary representation.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.IRefFontTable.Write(PdfSharp.Internal.OpenType.OpenTypeFontWriter)">
+            <summary>
+            Converts the font into its binary representation.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OTFontStyleHack">
+            <summary>
+            Specifies style information applied to text.
+            Note that this enum was named XFontStyle in PDFsharp versions prior to 6.0.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OTFontStyleHack.Bold">
+            <summary>
+            Bold text.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OTFontStyleHack.Italic">
+            <summary>
+            Italic text.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OTFontStyleHack.BoldItalic">
+            <summary>
+            Bold and italic text.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.NRT.ThrowOnNull(System.String)">
+            <summary>
+            Throws an InvalidOperationException because an expression which must not be null is null.
+            </summary>
+            <param name="message">The message.</param>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.NRT.ThrowOnNull``1(System.String)">
+            <summary>
+            Throws InvalidOperationException. Use this function during the transition from older C# code
+            to new code that uses nullable reference types.
+            </summary>
+            <typeparam name="TResult">The type this function must return to be compiled correctly.</typeparam>
+            <param name="message">An optional message used for the exception.</param>
+            <returns>Nothing, always throws.</returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OpenTypeFontEmbedding.TryComputeSubset">
+            <summary>
+            OpenType font files with TrueType outline are embedded as a font subset.
+            OpenType font files with PostScript outline are embedded as they are,
+            because PDFsharp cannot compute subsets from this type of font files.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OpenTypeFontEmbedding.EmbedCompleteFontFile">
+            <summary>
+            The font file is completely embedded. No subset is computed.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor">
+            <summary>
+            The OpenType font descriptor.
+            This class consolidates all relevant properties of a font face needed for glyph typeface, typeface,
+            and font family.
+            The calculation of some properties is identical to the calculation of these values in WPF.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.OTFamilyName">
+            <summary>
+            Name ID 1 (Font Family name) from the names table in en-US.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.OTSubfamilyName">
+            <summary>
+            Name ID 2 (Font Subfamily name) from the names table in en-US.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.FamilyName">
+            <summary>
+            Initially same as OTFamilyName.
+            The value can be overridden during font registration.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.FaceName">
+            <summary>
+            Initially same as OTSubfamilyName.
+            The value can be overridden during font registration.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.GlyphCount">
+            <summary>
+            The number of glyphs in the font.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.OTFontStyle">
+            <summary>
+            Value depending on bit 0, 6, and 9 of fsSelection (font selection flag) from OS/2 table.
+            Value is 0, 1, or 2: Normal, Oblique, or Italic.
+            The value can be overridden during font registration.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.OTFontWeight">
+            <summary>
+            Value of usWeightClass from OS/2 table.
+            The value can be overridden during font registration.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.OTFontStretch">
+            <summary>
+            Value of usWidthClass from OS/2 table.
+            The value can be overridden during font registration.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.IsBoldFace">
+            <summary>
+            Gets a value indicating whether this instance belongs to a bold font.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.IsItalicFace">
+            <summary>
+            Gets a value indicating whether this instance belongs to an italic font.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.UnitsPerEm">
+            <summary>
+            head unitsPerEm.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.Height">
+            <summary>
+            Same as Ascender + Descender.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.Baseline">
+            <summary>
+            (Ascender + LineSpacing - Descender) * .5
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.CapHeight">
+            <summary>
+            OS/2 sCapHeight.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.XHeight">
+            <summary>
+            OS/2 sxHeight.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.UnderlinePosition">
+            <summary>
+            post underlinePosition.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.UnderlineThickness">
+            <summary>
+            post underlineThickness.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.StrikeoutPosition">
+            <summary>
+            OS/2 yStrikeoutPosition.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.StrikeoutSize">
+            <summary>
+            OS/2 yStrikeoutSize.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.Ascender">
+            <summary>
+            OS/2 usWinDescent.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.Descender">
+            <summary>
+            OS/2 usWinDescent.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.Leading">
+            <summary>
+            LineSpacing - (Ascender + Descender);.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.LineGap">
+            <summary>
+            hhea lineGap.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.LineSpacing">
+            <summary>
+            max(lineGap + ascender + descender, winAscent + winDescent).
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.ItalicAngle">
+            <summary>
+            (Not used).
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.XMin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.YMin">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.XMax">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.YMax">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.StemV">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.BmpCodepointToGlyphIndex(System.Char)">
+            <summary>
+            Maps a Unicode code point from the BMP to the index of the corresponding glyph.
+            Returns 0 if no glyph exists for the specified character.
+            See OpenType spec "cmap - Character To Glyph Index Mapping Table /
+            Format 4: Segment mapping to delta values"
+            for details about this a little bit strange looking algorithm.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.SurrogatePairToGlyphIndex(System.Char,System.Char)">
+            <summary>
+            Maps a Unicode character from outside the BMP to the index of the corresponding glyph.
+            Returns 0 if no glyph exists for the specified code point.
+            See OpenType spec "cmap - Character To Glyph Index Mapping Table /
+            Format 12: Segmented coverage"
+            for details about this a little bit strange looking algorithm.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.CodepointToGlyphIndex(System.Int32)">
+            <summary>
+            Maps a Unicode code point to the index of the corresponding glyph.
+            Returns 0 if no glyph exists for the specified character.
+            Should only be called for code points that are not from BMP.
+            See OpenType spec "cmap - Character To Glyph Index Mapping Table /
+            Format 4: Segment mapping to delta values"
+            for details about this a little bit strange looking algorithm.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.GlyphIndexToPdfWidth(System.UInt16)">
+            <summary>
+            Converts the width of a glyph identified by its index to PDF design units.
+            Index 0 also returns a valid font specific width for the non-existing glyph.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.GlyphIndexToEmWidth(System.UInt16,System.Double)">
+            <summary>
+            Converts the width of a glyph identified by its index to PDF design units.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.GlyphIndexToWidth(System.Int32)">
+            <summary>
+            Converts the width of a glyph identified by its index to PDF design units.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.IsSymbolFont">
+            <summary>
+            Converts the code units of a UTF-16 string into the glyph identifier of this font.
+            If useAnsiCharactersOnly is true, only valid ANSI code units a taken into account.
+            All non-ANSI characters are skipped and not part of the result.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.RemapSymbolChar(System.Char)">
+            <summary>
+            Remaps a character of a symbol font.
+            Required to get the correct glyph identifier
+            from the cmap type 4 table.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontDescriptor.GetColorRecord(System.Int32)">
+            <summary>
+            Gets the color-record of the glyph with the specified index.
+            </summary>
+            <param name="glyphIndex"></param>
+            <returns>The color-record for the specified glyph or null, if the specified glyph has no color record.</returns>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontFace">
+            <summary>
+            Represents an OpenType font face in memory.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.#ctor(PdfSharp.Internal.OpenType.OpenTypeFontFace)">
+            <summary>
+            Shallow copy for font subset.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontFace.FullFaceName">
+            <summary>
+            Gets the full face name from the name table.
+            Name is also used as the key.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontFace.CheckSum">
+            <summary>
+            Gets the 64-bit check sum to identify the font face by its font source.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontFace.OTFontSource">
+            <summary>
+            Gets the bytes that represents the font data.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OpenTypeFontFace.TableDictionary">
+            <summary>
+            The dictionary of all font tables.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.AddTable(PdfSharp.Internal.OpenType.OpenTypeFontTable)">
+            <summary>
+            Adds the specified table to this font image.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.Read">
+            <summary>
+            Reads all required tables from the font data.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.CreateFontSubset(System.Collections.Generic.Dictionary{System.UInt16,System.Object},System.Boolean)">
+            <summary>
+            Creates a new font image that is a subset of this font image containing only the specified glyphs.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.Compile">
+            <summary>
+            Compiles the font to its binary representation.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadByte">
+            <summary>
+            Reads a System.Byte.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadShort">
+            <summary>
+            Reads a System.Int16.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadUShort">
+            <summary>
+            Reads a System.UInt16.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadLong">
+            <summary>
+            Reads a System.Int32.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadULong">
+            <summary>
+            Reads a System.UInt32.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadFixed">
+            <summary>
+            Reads a System.Int32.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadFWord">
+            <summary>
+            Reads a System.Int16.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadUFWord">
+            <summary>
+            Reads a System.UInt16.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadLongDate">
+            <summary>
+            Reads a System.Int64.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadString(System.Int32)">
+            <summary>
+            Reads a System.String with the specified size.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadBytes(System.Int32)">
+            <summary>
+            Reads a System.Byte[] with the specified size.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.Read(System.Byte[])">
+            <summary>
+            Reads the specified buffer.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Reads the specified buffer.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.ReadTag">
+            <summary>
+            Reads a System.Char[4] as System.String.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontFace.DebuggerDisplay">
+            <summary>
+            Gets the DebuggerDisplayAttribute text.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontFace.OffsetTable">
+            <summary>
+            Represents the font offset table.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OpenTypeFontFace.OffsetTable.Version">
+            <summary>
+            0x00010000 for Version 1.0.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OpenTypeFontFace.OffsetTable.TableCount">
+            <summary>
+            Number of tables.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OpenTypeFontFace.OffsetTable.SearchRange">
+            <summary>
+            (Maximum power of 2 ≤ numTables) x 16.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OpenTypeFontFace.OffsetTable.EntrySelector">
+            <summary>
+            Log2(maximum power of 2 ≤ numTables).
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OpenTypeFontFace.OffsetTable.RangeShift">
+            <summary>
+            NumTables x 16-searchRange.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFace.OffsetTable.Write(PdfSharp.Internal.OpenType.OpenTypeFontWriter)">
+            <summary>
+            Writes the offset table.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontFaceCache">
+            <summary>
+            Global table of all OpenType font faces cached by their face name and check sum.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFaceCache.TryGetFontFace(System.String,PdfSharp.Internal.OpenType.OpenTypeFontFace@)">
+            <summary>
+            Tries to get font face by its key.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFaceCache.TryGetFontFace(System.UInt64,PdfSharp.Internal.OpenType.OpenTypeFontFace@)">
+            <summary>
+            Tries to get font face by its font source check sum.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontFaceCache.DebuggerDisplay">
+            <summary>
+            Gets the DebuggerDisplayAttribute text.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OtGlobals">
+            <summary>
+            The class that holds all OpenType global stuff in a singleton.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OtGlobals.OtFontStorage">
+            <summary>
+            Stores font information from PdfSharp.OpenType assembly.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OtGlobals.OtFontStorage.FontFaceCache">
+            <summary>
+            Maps face name to OpenType font face.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OtGlobals.OtFontStorage.FontFacesByCheckSum">
+            <summary>
+            Maps font source key to OpenType font face.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OtGlobals.OtFontStorage.FontDescriptorCache">
+            <summary>
+            Maps font descriptor key to OpenTypeFontDescriptor.
+            TODO: Replace by FontFaceCache.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OtGlobals.OtFontStorage.FontFamilyByName">
+            <summary>
+            Maps family name to OpenType font family.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OtGlobals.OtFontStorage.FontSourcesByName">
+            <summary>
+            Maps typeface key or font name to font source.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OtGlobals.OtFontStorage.FontSourcesByKey">
+            <summary>
+            Maps font source key (FSK) to font source.
+            The key is a simple hash code of the font face data.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OtGlobals.OtFontStorage.Version">
+            <summary>
+            Gets the version of this instance.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OtGlobals.OtFontStorage.GlyphTypefaceByKey">
+            <summary>
+            Maps typeface key to OpenType glyph typeface.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OtGlobals.Version">
+            <summary>
+            Gets the version of this instance.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OtGlobals._globalVersionCount">
+            <summary>
+            The global version count gives every new instance of OtGlobals a new unique
+            version number.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OtGlobals._global">
+            <summary>
+            The container of all global stuff in PDFsharp.OpenType.
+            By creating a new instance of OtGlobals all caches are reset
+            as if an application starts in a new process.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontFamily">
+            <summary>
+            Represents a family of related OpenType fonts.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFamily.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PdfSharp.Internal.OpenType.OpenTypeFontFamily"/> class.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFamily.GetGlyphTypefaces">
+            <summary>
+            Gets a collection of the OpenType glyph typefaces of this family
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OpenTypeFontFamily.FamilyName">
+            <summary>
+            Gets the name of the font family.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontFamilyCache">
+            <summary>
+            Global table of all OpenType font faces cached by their face name and check sum.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontFamilyCache.TryGetFontFamily(System.String,PdfSharp.Internal.OpenType.OpenTypeFontFamily@)">
+            <summary>
+            Tries to get font face by its family name.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontRegistry">
+            <summary>
+            A hack to bootstrap the interaction of FontFamily, Typeface, and FontFace.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontSource">
+            <summary>
+            The raw bytes of a font file in memory.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontSource.GetOrCreateFrom(System.Byte[],System.UInt64)">
+            <summary>
+            Gets an existing font source or creates a new one.
+            A new font source is cached in OpenTypeFontSourceCache.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontSource.GetOrCreateFrom(System.Uri)">
+            <summary>
+            Creates an OpenTypeFontSource from a URI.
+            Returns null if the URI does not exist or is not a file URI.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontSource.CreateCompiledFont(System.Byte[])">
+            <summary>
+            Creates a font source from a byte array.
+            The result is not cached.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontSource.OTFontFace">
+            <summary>
+            Gets or sets the (first) font face.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontSource.ChecksumKey">
+            <summary>
+            Gets the key that uniquely identifies this font source.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontSource.FontFaceKey">
+            <summary>
+            //Gets the name of the font’s name table.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontSource.Bytes">
+            <summary>
+            Gets the bytes of the font.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontSource.GetHashCode">
+            <summary>
+            Returns a hash code for this instance.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontSource.Equals(System.Object)">
+            <summary>
+            Determines whether the specified object is equal to the current object.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontSource.DebuggerDisplay">
+            <summary>
+            Gets the DebuggerDisplayAttribute text.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontSourceCache">
+            <summary>
+            Provides functionality to map a font face request to a physical font.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeFontSourceCache.HasFontSources">
+            <summary>
+            Gets a value indicating whether at least one font source was created.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontSourceCache.CacheFontSource(PdfSharp.Internal.OpenType.OpenTypeFontSource)">
+            <summary>
+            Caches a font source under its face name and its key.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontSourceCache.CacheNewFontSource(System.String,PdfSharp.Internal.OpenType.OpenTypeFontSource)">
+            <summary>
+            Caches a font source under its face name and its key.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontTable">
+            <summary>
+            Base class for all OpenType tables used in PDFsharp.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontTable.Clone">
+            <summary>
+            Creates a deep copy of the current instance.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.OpenTypeFontTable.FontData">
+            <summary>
+            Gets the font image the table belongs to.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontTable.PrepareForCompilation">
+            <summary>
+            When overridden in a derived class, prepares the font table to be compiled into its binary representation.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontTable.Write(PdfSharp.Internal.OpenType.OpenTypeFontWriter)">
+            <summary>
+            When overridden in a derived class, converts the font into its binary representation.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontTable.CalcChecksum(System.Byte[])">
+            <summary>
+            Calculates the checksum of a table represented by its bytes.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.WinEncodingId">
+            <summary>
+            Only Symbol and Unicode are used by PDFsharp.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.NameId">
+            <summary>
+            Name IDs of strings in name table.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.CMap4">
+            <summary>
+            CMap format 4: Segment mapping to delta values.
+            The Windows standard format.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.CMap12">
+            <summary>
+            CMap format 12: Segmented coverage.
+            The Windows standard format.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.CMapTable">
+            <summary>
+            This table defines the mapping of character codes to the glyph index values used in the font.
+            It may contain more than one subtable, in order to support more than one character encoding scheme.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.CMapTable.symbol">
+            <summary>
+            Is true for symbol font encoding.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.CMapTable.#ctor(PdfSharp.Internal.OpenType.OpenTypeFontFace)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PdfSharp.Internal.OpenType.CMapTable"/> class.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.ColorTable">
+            <summary>
+            This table adds support for multi-colored glyphs in a manner that integrates with the rasterizers
+            of existing text engines and that is designed to be easy to support with current OpenType font files.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.ColorPalletTable">
+            <summary>
+            This table is a set of one or more palettes, each containing a predefined number of color records.
+            It may also contain 'name' table IDs describing the palettes and their entries.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.FontHeaderTable">
+            <summary>
+            This table gives global information about the font. The bounding box values should be computed using 
+            only glyphs that have contours. Glyphs with no contours should be ignored for the purposes of these calculations.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.HorizontalHeaderTable">
+            <summary>
+            This table contains information for horizontal layout. The values in the minRightSideBearing, 
+            MinLeftSideBearing and xMaxExtent should be computed using only glyphs that have contours.
+            Glyphs with no contours should be ignored for the purposes of these calculations.
+            All reserved areas must be set to 0. 
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.HorizontalMetricsTable">
+            <summary>
+            The type longHorMetric is defined as an array where each element has two parts:
+            the advance width, which is of type USHORT, and the left side bearing, which is of type SHORT.
+            These fields are in font design units.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.VerticalHeaderTable">
+            <summary>
+            The vertical header table contains information needed for vertical layout of Chinese, Japanese,
+            Korean (CJK) and other ideographic scripts. In vertical layout, these scripts are written either
+            top to bottom or bottom to top. This table contains information that is general to the font as
+            a whole. Information that pertains to specific glyphs is given in the vertical metrics ('vmtx')
+            table. The formats of these tables are similar to those for horizontal metrics, 'hhea' and 'hmtx'.
+            https://learn.microsoft.com/en-us/typography/opentype/spec/vhea
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.VerticalMetricsTable">
+            <summary>
+            The vertical metrics table allows you to specify the vertical spacing for each glyph in a
+            vertical font. This table consists of either one or two arrays that contain metric information
+            (the advance heights and top sidebearings) for the vertical layout of each of the glyphs in
+            the font.
+            https://learn.microsoft.com/en-us/typography/opentype/spec/vmtx
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.MaximumProfileTable">
+            <summary>
+            This table establishes the memory requirements for this font.
+            Fonts with CFF data must use Version 0.5 of this table, specifying only the numGlyphs field.
+            Fonts with TrueType outlines must use Version 1.0 of this table, where all data is required.
+            Both formats of OpenType require a 'maxp' table because a number of applications call the 
+            Windows GetFontData() API on the 'maxp' table to determine the number of glyphs in the font.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.NameTable">
+             <summary>
+             The naming table allows multilingual strings to be associated with the OpenType font file.
+             These strings can represent copyright notices, font names, family names, style names, and so on.
+             To keep this table short, the font manufacturer may wish to make a limited set of entries in some
+             small set of languages; later, the font can be "localized" and the strings translated or added.
+             Other parts of the OpenType font file that require these strings can then refer to them simply by
+             their index number. Clients that need a particular string can look it up by its platform ID, character
+             encoding ID, language ID and name ID. Note that some platforms may require single byte character
+             strings, while others may require double byte strings. 
+            
+             For historical reasons, some applications which install fonts perform Version control using Macintosh
+             platform (platform ID 1) strings from the 'name' table. Because of this, we strongly recommend that
+             the 'name' table of all fonts include Macintosh platform strings and that the syntax of the Version
+             number (name ID 5) follows the guidelines given in this document.
+             </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.NameTable.OTFamilyName">
+            <summary>
+            Get the OpenType family name.
+            This is the FamilyName in FontFace.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.NameTable.OTSubfamilyName">
+            <summary>
+            Get the OpenType subfamily name.
+            This is the FaceName in FontFace.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.NameTable.OTFullFontName">
+            <summary>
+            Get the OpenType full font name.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.NameTable.NamesEnUs">
+            <summary>
+            All en-US names of the name table.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OS2Table">
+            <summary>
+            The OS/2 table consists of a set of Metrics that are required in OpenType fonts. 
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.PostScriptTable">
+            <summary>
+            This table contains additional information needed to use TrueType or OpenType fonts
+            on PostScript printers. 
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.ControlValueTable">
+            <summary>
+            This table contains a list of values that can be referenced by instructions.
+            They can be used, among other things, to control characteristics for different glyphs.
+            The length of the table must be an integral number of FWORD units.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.FontProgram">
+            <summary>
+            This table is similar to the CVT Program, except that it is only run once, when the font is first used.
+            It is used only for FDEFs and IDEFs. Thus, the CVT Program need not contain function definitions.
+            However, the CVT Program may redefine existing FDEFs or IDEFs.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.ControlValueProgram">
+            <summary>
+            The Control Value Program consists of a set of TrueType instructions that will be executed whenever the font or
+            point size or transformation matrix change and before each glyph is interpreted. Any instruction is legal in the
+            CVT Program but since no glyph is associated with it, instructions intended to move points within a particular
+            glyph outline cannot be used in the CVT Program. The name 'prep' is anachronistic.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.GlyphSubstitutionTable">
+            <summary>
+            This table contains information that describes the glyphs in the font in the TrueType outline format.
+            Information regarding the rasterizer (scaler) refers to the TrueType rasterizer.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeFontWriter">
+            <summary>
+            Represents a writer for True Type font files. 
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PdfSharp.Internal.OpenType.OpenTypeFontWriter"/> class.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeFontWriter.WriteTag(System.String)">
+            <summary>
+            Writes a table name.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.FontWriter">
+            <summary>
+            Represents a writer for generation of font file streams. 
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.#ctor(System.IO.Stream)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PdfSharp.Internal.OpenType.FontWriter"/> class.
+            Data is written in Motorola format (big-endian).
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.Close(System.Boolean)">
+            <summary>
+            Closes the writer and, if specified, the underlying stream.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.Close">
+            <summary>
+            Closes the writer and the underlying stream.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.FontWriter.Position">
+            <summary>
+            Gets or sets the position within the stream.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.WriteByte(System.Byte)">
+            <summary>
+            Writes the specified value to the font stream.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.WriteByte(System.Int32)">
+            <summary>
+            Writes the specified value to the font stream.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.WriteShort(System.Int16)">
+            <summary>
+            Writes the specified value to the font stream using big-endian.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.WriteShort(System.Int32)">
+            <summary>
+            Writes the specified value to the font stream using big-endian.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.WriteUShort(System.UInt16)">
+            <summary>
+            Writes the specified value to the font stream using big-endian.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.WriteUShort(System.Int32)">
+            <summary>
+            Writes the specified value to the font stream using big-endian.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.WriteInt(System.Int32)">
+            <summary>
+            Writes the specified value to the font stream using big-endian.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.FontWriter.WriteUInt(System.UInt32)">
+            <summary>
+            Writes the specified value to the font stream using big-endian.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.FontWriter.Stream">
+            <summary>
+            Gets the underlying stream.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeGlyphTypeface">
+            <summary>
+            Represents an OpenType glyph typeface.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeGlyphTypeface.#ctor(PdfSharp.Internal.OpenType.OpenTypeFontFace,PdfSharp.Internal.OpenType.OpenTypeFontDescriptor,System.Boolean,System.Boolean,System.String)">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.OpenTypeGlyphTypefaceCache">
+            <summary>
+            Global table of all OpenType glyph typefaces cached by their face name and check sum.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.OpenTypeGlyphTypefaceCache.TryGetGlyphTypeface(System.String,PdfSharp.Internal.OpenType.OpenTypeGlyphTypeface@)">
+            <summary>
+            Tries to get an OpenTypeGlyphTypeface by its typeface key.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.OpenTypeGlyphTypefaceCache.DebuggerDisplay">
+            <summary>
+            Gets the DebuggerDisplayAttribute text.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.TableDirectoryEntry">
+            <summary>
+            Represents an entry in the fonts table dictionary.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.TableDirectoryEntry.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PdfSharp.Internal.OpenType.TableDirectoryEntry"/> class.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.TableDirectoryEntry.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PdfSharp.Internal.OpenType.TableDirectoryEntry"/> class.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableDirectoryEntry.Tag">
+            <summary>
+            4-byte identifier.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableDirectoryEntry.CheckSum">
+            <summary>
+            CheckSum for this table.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableDirectoryEntry.Offset">
+            <summary>
+            Offset from beginning of TrueType font file.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableDirectoryEntry.Length">
+            <summary>
+            Actual length of this table in bytes.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.OpenType.TableDirectoryEntry.PaddedLength">
+            <summary>
+            Gets the length rounded up to a multiple of four bytes.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.OpenType.TableDirectoryEntry.FontTable">
+            <summary>
+            Associated font table.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.TableDirectoryEntry.ReadFrom(PdfSharp.Internal.OpenType.OpenTypeFontFace)">
+            <summary>
+            Creates and reads a TableDirectoryEntry from the font image.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.IndexToLocationTable">
+            <summary>
+            The indexToLoc table stores the offsets to the locations of the glyphs in the font,
+            relative to the beginning of the glyphData table. In order to compute the length of
+            the last glyph element, there is an extra entry after the last valid index. 
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.IndexToLocationTable.Read">
+            <summary>
+            Converts the bytes in a handy representation.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.IndexToLocationTable.PrepareForCompilation">
+            <summary>
+            Prepares the font table to be compiled into its binary representation.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.IndexToLocationTable.Write(PdfSharp.Internal.OpenType.OpenTypeFontWriter)">
+            <summary>
+            Converts the font into its binary representation.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.OpenType.UnicodeHelper">
+            <summary>
+            A bunch of internal functions to handle Unicode.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.UnicodeHelper.Utf32FromString(System.String,System.Boolean,System.Byte)">
+            <summary>
+            Converts a UTF-16 string into an array of Unicode code points.
+            </summary>
+            <param name="s">The string to be converted.</param>
+            <param name="coerceAnsi">if set to <c>true</c> [coerce ANSI].</param>
+            <param name="nonAnsi">The non ANSI.</param>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.UnicodeHelper.SymbolCodePointsFromString(System.String,PdfSharp.Internal.OpenType.OpenTypeFontDescriptor)">
+            <summary>
+            Converts a UTF-16 string into an array of code points of a symbol font.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.OpenType.UnicodeHelper.ConvertToUtf32(System.Char,System.Char)">
+            <summary>
+            Convert a surrogate pair to UTF-32 code point.
+            Similar to Char.ConvertToUtf32 but never throws an error.
+            Instead, returns 0 if one of the surrogates are invalid.
+            </summary>
+            <param name="highSurrogate">The high surrogate.</param>
+            <param name="lowSurrogate">The low surrogate.</param>
+        </member>
+    </members>
+</doc>

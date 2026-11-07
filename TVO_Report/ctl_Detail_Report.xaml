@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="TVO_Report.ctl_Detail_Report"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TVO_Report"
+             mc:Ignorable="d" >
+    <Grid>
+        <StackPanel Margin="10">
+
+            <TextBlock x:Name="txtSilo"
+               FontWeight="Bold"
+               FontSize="18"
+               Margin="0,0,0,5"/>
+
+            <DataGrid x:Name="dgSensor"
+              AutoGenerateColumns="False"
+              CanUserAddRows="False"
+              IsReadOnly="True">
+
+                <DataGrid.Columns>
+
+                    <DataGridTextColumn Header="Sensor" Binding="{Binding Sensor}" Width="120"/>
+
+                    <DataGridTextColumn Header="1" Binding="{Binding C1,StringFormat=N1}"/>
+                    <DataGridTextColumn Header="2" Binding="{Binding C2,StringFormat=N1}"/>
+                    <DataGridTextColumn Header="3" Binding="{Binding C3,StringFormat=N1}"/>
+                    <DataGridTextColumn Header="4" Binding="{Binding C4,StringFormat=N1}"/>
+                    <DataGridTextColumn Header="5" Binding="{Binding C5,StringFormat=N1}"/>
+                    <DataGridTextColumn Header="6" Binding="{Binding C6,StringFormat=N1}"/>
+                    <DataGridTextColumn Header="7" Binding="{Binding C7,StringFormat=N1}"/>
+                    <DataGridTextColumn Header="8" Binding="{Binding C8,StringFormat=N1}"/>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+
+        </StackPanel>
+    </Grid>
+</UserControl>

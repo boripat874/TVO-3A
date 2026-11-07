@@ -1,0 +1,579 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PdfSharp.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:PdfSharp.Diagnostics.NRT">
+            <summary>
+            Helper class for code migration to nullable reference types.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Diagnostics.NRT.ThrowOnNull(System.String)">
+            <summary>
+            Throws an InvalidOperationException because an expression which must not be null is null.
+            </summary>
+            <param name="message">The message.</param>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:PdfSharp.Diagnostics.NRT.ThrowOnNull``1(System.String)">
+            <summary>
+            Throws InvalidOperationException. Use this function during the transition from older C# code
+            to new code that uses nullable reference types.
+            </summary>
+            <typeparam name="TResult">The type this function must return to be compiled correctly.</typeparam>
+            <param name="message">An optional message used for the exception.</param>
+            <returns>Nothing, always throws.</returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:PdfSharp.Diagnostics.NRT.ThrowOnNull``2(System.String)">
+            <summary>
+            Throws InvalidOperationException. Use this function during the transition from older C# code
+            to new code that uses nullable reference types.
+            </summary>
+            <typeparam name="TResult">The type this function must return to be compiled correctly.</typeparam>
+            <typeparam name="TType">The type of the object that is null.</typeparam>
+            <param name="message">An optional message used for the exception.</param>
+            <returns>Nothing, always throws.</returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:PdfSharp.Internal.ChecksumHelper.Calculate(System.Collections.Generic.IEnumerable{System.Byte},System.Int32)">
+            <summary>
+            Calculate the Adler-32 checksum for some data.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.ChecksumHelper.CalcChecksum(System.Byte[])">
+            <summary>
+            Calculates an Adler32 checksum combined with the buffer length
+            in a 64-bit unsigned integer.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.GfxMsgId">
+            <summary>
+            System message ID.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.SyMsgId">
+            <summary>
+            System message ID.
+            </summary>
+            <remarks>
+            The enum value should be fixed over time, but the enum name
+            must be stable in the future. This is because the name is
+            the link to any kind of outer resources, e.g. an entry in
+            the PDFsharp technical reference.
+            </remarks>
+        </member>
+        <member name="T:PdfSharp.Internal.MessageIdOffset">
+            <summary>
+            Offsets to ensure that all message IDs are pairwise distinct
+            within PDFsharp foundation.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.MessageIdOffset.Sy">
+            <summary>
+            General system messages.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.MessageIdOffset.Om">
+            <summary>
+            PDFsharp object model messages
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.MessageIdOffset.Ps">
+            <summary>
+            General PDFsharp messages.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.MessageIdOffset.PsCrypto">
+            <summary>
+            PDFsharp cryptography messages.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.MessageIdOffset.MdDom">
+            <summary>
+            MigraDoc document object model messages.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.MessageIdOffset.MdPdf">
+            <summary>
+            MigraDoc PDF renderer messages.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.MessageIdOffset.MdRtf">
+            <summary>
+            MigraDoc RTF renderer messages.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.MessageIdOffset.Gfx">
+            <summary>
+            PDFsharp Graphics messages.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.GfxMsg">
+            <summary>
+            PDFsharp Graphics message.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.GfxMsg.#ctor(PdfSharp.Internal.SyMsgId,System.String)">
+            <summary>
+            PDFsharp Graphics message.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.GfxMsgs">
+            <summary>
+            PDFsharp Graphics messages.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.GfxMsgs.Generic(System.String)">
+            <summary>
+            Use as a generic hack during development.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.SemVersionInformation">
+            <summary>
+            Internal public fields with semantic versioning information.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.Major">
+            <summary>
+            The major version number.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.Minor">
+            <summary>
+            The minor version number.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.Patch">
+            <summary>
+            The patch number.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.Version">
+            <summary>
+            The full semantic version number.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.FileVersion">
+            <summary>
+            The assembly file version number.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.PreReleaseLabel">
+            <summary>
+            The pre-release label.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.InformationalVersion">
+            <summary>
+            The assembly informational version.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.BranchName">
+            <summary>
+            The name of the current Git branch.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.CommitDate">
+            <summary>
+            The date of the last commit.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.Sha">
+            <summary>
+            The SHA of the last commit.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.SemVersionInformation.ShortSha">
+            <summary>
+            The short SHA of the last commit.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.IErrorMessageInfo">
+            <summary>
+            Provides information about an error.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.IErrorMessageInfo.Id">
+            <summary>
+            The integer value of the error enum.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.IErrorMessageInfo.Name">
+            <summary>
+            The name of the error enum.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.IErrorMessageInfo.Message">
+            <summary>
+            The error message.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.IErrorMessageInfo.EventId">
+            <summary>
+            The event ID for logging.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Internal.IErrorMessageInfo.EventName">
+            <summary>
+            The name of the event.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.SyMsg">
+            <summary>
+            (PDFsharp) System message.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.SyMsg.#ctor(PdfSharp.Internal.SyMsgId,System.String)">
+            <summary>
+            (PDFsharp) System message.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.SyMsgs">
+            <summary>
+            (PDFsharp) System messages.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.SyMsgs.Generic(System.String)">
+            <summary>
+            Use as a generic hack during development.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.TH2">
+            <summary>
+            Experimental throw helper.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.UrlLiterals">
+            <summary>
+            URLs used in PDFsharp are maintained only here.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.UrlLiterals.LinkToRoot">
+            <summary>
+            URL for index page.
+            "https://docs.pdfsharp.net/"
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.UrlLiterals.LinkToAssetsDoc">
+            <summary>
+            URL for missing assets error message.
+            "https://docs.pdfsharp.net/link/download-assets.html"
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.UrlLiterals.LinkToFontResolving">
+            <summary>
+            URL for missing font resolver.
+            "https://docs.pdfsharp.net/link/font-resolving.html"
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.UrlLiterals.LinkToMigraDocFontResolving">
+            <summary>
+            URL for missing MigraDoc error font.
+            "https://docs.pdfsharp.net/link/migradoc-font-resolving-6.2.html"
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.UrlLiterals.LinkToCannotOpenPdfFile">
+            <summary>
+            URL shown when a PDF file cannot be opened/parsed.
+            "https://docs.pdfsharp.net/link/cannot-open-pdf-6.2.html"
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute">
+             <summary>
+             Indicates that certain members on a specified <see cref="T:System.Type"/> are accessed dynamically,
+             for example through <see cref="N:System.Reflection"/>.
+             </summary>
+             <remarks>
+             This allows tools to understand which members are being accessed during the execution
+             of a program.
+            
+             This attribute is valid on members whose type is <see cref="T:System.Type"/> or <see cref="T:System.String"/>.
+            
+             When this attribute is applied to a location of type <see cref="T:System.String"/>, the assumption is
+             that the string represents a fully qualified type name.
+            
+             When this attribute is applied to a class, interface, or struct, the members specified
+             can be accessed dynamically on <see cref="T:System.Type"/> instances returned from calling
+             <see cref="M:System.Object.GetType"/> on instances of that class, interface, or struct.
+            
+             If the attribute is applied to a method it's treated as a special case and it implies
+             the attribute should be applied to the "this" parameter of the method. As such the attribute
+             should only be used on instance methods of types assignable to System.Type (or string, but no methods
+             will use it there).
+             </remarks>
+        </member>
+        <member name="M:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.#ctor(System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes)">
+            <summary>
+            Initializes a new instance of the <see cref="T:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute"/> class
+            with the specified member types.
+            </summary>
+            <param name="memberTypes">The types of members dynamically accessed.</param>
+        </member>
+        <member name="P:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMembersAttribute.MemberTypes">
+            <summary>
+            Gets the <see cref="T:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes"/> which specifies the type
+            of members dynamically accessed.
+            </summary>
+        </member>
+        <member name="T:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes">
+             <summary>
+             Specifies the types of members that are dynamically accessed.
+            
+             This enumeration has a <see cref="T:System.FlagsAttribute"/> attribute that allows a
+             bitwise combination of its member values.
+             </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.None">
+            <summary>
+            Specifies no members.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicParameterlessConstructor">
+            <summary>
+            Specifies the default, parameterless public constructor.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicConstructors">
+            <summary>
+            Specifies all public constructors.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicConstructors">
+            <summary>
+            Specifies all non-public constructors.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicMethods">
+            <summary>
+            Specifies all public methods.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicMethods">
+            <summary>
+            Specifies all non-public methods.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicFields">
+            <summary>
+            Specifies all public fields.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicFields">
+            <summary>
+            Specifies all non-public fields.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicNestedTypes">
+            <summary>
+            Specifies all public nested types.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicNestedTypes">
+            <summary>
+            Specifies all non-public nested types.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicProperties">
+            <summary>
+            Specifies all public properties.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicProperties">
+            <summary>
+            Specifies all non-public properties.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.PublicEvents">
+            <summary>
+            Specifies all public events.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.NonPublicEvents">
+            <summary>
+            Specifies all non-public events.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.Interfaces">
+            <summary>
+            Specifies all interfaces implemented by the type.
+            </summary>
+        </member>
+        <member name="F:System.Diagnostics.CodeAnalysis.DynamicallyAccessedMemberTypes.All">
+            <summary>
+            Specifies all members.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.IsExternalInit">
+            <summary>
+            Required to compile init-only setters in .NET Standard and .NET Framework 4.71.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.RequiredMemberAttribute">
+            <summary>
+            Specifies that a type has required members or that a member is required.
+            </summary>
+        </member>
+        <member name="T:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute">
+            <summary>
+            Indicates that compiler support for a particular feature is required for the location where this attribute is applied.
+            </summary>
+        </member>
+        <member name="M:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new instance of the <see cref="T:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute"/> type.
+            </summary>
+            <param name="featureName">The name of the feature to indicate.</param>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName">
+            <summary>
+            The name of the compiler feature.
+            </summary>
+        </member>
+        <member name="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.IsOptional">
+            <summary>
+            If true, the compiler can choose to allow access to the location where this attribute is applied if it does not understand <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/>.
+            </summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.RefStructs">
+            <summary>
+            The <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/> used for the ref structs C# feature.
+            </summary>
+        </member>
+        <member name="F:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.RequiredMembers">
+            <summary>
+            The <see cref="P:System.Runtime.CompilerServices.CompilerFeatureRequiredAttribute.FeatureName"/> used for the required members C# feature.
+            </summary>
+        </member>
+        <member name="T:System.Index">
+            <summary>Represent a type can be used to index a collection either from the start or the end.</summary>
+            <remarks>
+            Index is used by the C# compiler to support the new index syntax
+            <code>
+            int[] someArray = new int[5] { 1, 2, 3, 4, 5 } ;
+            int lastElement = someArray[^1]; // lastElement = 5
+            </code>
+            </remarks>
+        </member>
+        <member name="M:System.Index.#ctor(System.Int32,System.Boolean)">
+            <summary>Construct an Index using a value and indicating if the index is from the start or from the end.</summary>
+            <param name="value">The index value. it has to be zero or positive number.</param>
+            <param name="fromEnd">Indicating if the index is from the start or from the end.</param>
+            <remarks>
+            If the Index constructed from the end, index value 1 means pointing at the last element and index value 0 means pointing at beyond last element.
+            </remarks>
+        </member>
+        <member name="P:System.Index.Start">
+            <summary>Create an Index pointing at first element.</summary>
+        </member>
+        <member name="P:System.Index.End">
+            <summary>Create an Index pointing at beyond last element.</summary>
+        </member>
+        <member name="M:System.Index.FromStart(System.Int32)">
+            <summary>Create an Index from the start at the position indicated by the value.</summary>
+            <param name="value">The index value from the start.</param>
+        </member>
+        <member name="M:System.Index.FromEnd(System.Int32)">
+            <summary>Create an Index from the end at the position indicated by the value.</summary>
+            <param name="value">The index value from the end.</param>
+        </member>
+        <member name="P:System.Index.Value">
+            <summary>Returns the index value.</summary>
+        </member>
+        <member name="P:System.Index.IsFromEnd">
+            <summary>Indicates whether the index is from the start or the end.</summary>
+        </member>
+        <member name="M:System.Index.GetOffset(System.Int32)">
+            <summary>Calculate the offset from the start using the giving collection length.</summary>
+            <param name="length">The length of the collection that the Index will be used with. length has to be a positive value</param>
+            <remarks>
+            For performance reason, we don’t validate the input length parameter and the returned offset value against negative values.
+            we don’t validate either the returned offset is greater than the input length.
+            It is expected Index will be used with collections which always have non-negative length/count. If the returned offset is negative and
+            then used to index a collection will get out of range exception which will be same affect as the validation.
+            </remarks>
+        </member>
+        <member name="M:System.Index.Equals(System.Object)">
+            <summary>Indicates whether the current Index object is equal to another object of the same type.</summary>
+            <param name="value">An object to compare with this object</param>
+        </member>
+        <member name="M:System.Index.Equals(System.Index)">
+            <summary>Indicates whether the current Index object is equal to another Index object.</summary>
+            <param name="other">An object to compare with this object</param>
+        </member>
+        <member name="M:System.Index.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary>
+        </member>
+        <member name="M:System.Index.op_Implicit(System.Int32)~System.Index">
+            <summary>Converts integer number to an Index.</summary>
+        </member>
+        <member name="M:System.Index.ToString">
+            <summary>Converts the value of the current Index object to its equivalent string representation.</summary>
+        </member>
+        <member name="T:System.Range">
+            <summary>Represent a range that has start and end indexes.</summary>
+            <remarks>
+            Range is used by the C# compiler to support the range syntax.
+            <code>
+            int[] someArray = new int[5] { 1, 2, 3, 4, 5 };
+            int[] subArray1 = someArray[0..2]; // { 1, 2 }
+            int[] subArray2 = someArray[1..^0]; // { 2, 3, 4, 5 }
+            </code>
+            </remarks>
+        </member>
+        <member name="P:System.Range.Start">
+            <summary>Represent the inclusive start index of the Range.</summary>
+        </member>
+        <member name="P:System.Range.End">
+            <summary>Represent the exclusive end index of the Range.</summary>
+        </member>
+        <member name="M:System.Range.#ctor(System.Index,System.Index)">
+            <summary>Construct a Range object using the start and end indexes.</summary>
+            <param name="start">Represent the inclusive start index of the range.</param>
+            <param name="end">Represent the exclusive end index of the range.</param>
+        </member>
+        <member name="M:System.Range.Equals(System.Object)">
+            <summary>Indicates whether the current Range object is equal to another object of the same type.</summary>
+            <param name="value">An object to compare with this object</param>
+        </member>
+        <member name="M:System.Range.Equals(System.Range)">
+            <summary>Indicates whether the current Range object is equal to another Range object.</summary>
+            <param name="other">An object to compare with this object</param>
+        </member>
+        <member name="M:System.Range.GetHashCode">
+            <summary>Returns the hash code for this instance.</summary>
+        </member>
+        <member name="M:System.Range.ToString">
+            <summary>Converts the value of the current Range object to its equivalent string representation.</summary>
+        </member>
+        <member name="M:System.Range.StartAt(System.Index)">
+            <summary>Create a Range object starting from start index to the end of the collection.</summary>
+        </member>
+        <member name="M:System.Range.EndAt(System.Index)">
+            <summary>Create a Range object starting from first element in the collection to the end Index.</summary>
+        </member>
+        <member name="P:System.Range.All">
+            <summary>Create a Range object starting from first element to the end.</summary>
+        </member>
+        <member name="M:System.Range.GetOffsetAndLength(System.Int32)">
+            <summary>Calculate the start offset and length of range object using a collection length.</summary>
+            <param name="length">The length of the collection that the range will be used with. length has to be a positive value.</param>
+            <remarks>
+            For performance reason, we don’t validate the input length parameter against negative values.
+            It is expected Range will be used with collections which always have non-negative length/count.
+            We validate the range is inside the length scope though.
+            </remarks>
+        </member>
+        <member name="T:System.ArgumentExceptionExtensions">
+            <summary>
+            Make new code compile with .NET Standard/Framework.
+            </summary>
+        </member>
+        <member name="M:StringExtensions.Contains(System.String,System.String,System.StringComparison)">
+            <summary>
+            String.Contains implementation for .NET Framework and .NET Standard as an extension method.
+            </summary>
+        </member>
+    </members>
+</doc>

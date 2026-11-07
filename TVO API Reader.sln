@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 18
+VisualStudioVersion = 18.9.12120.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVO API Reader", "TVO API Reader\TVO API Reader.csproj", "{17A5A89D-4C6D-4B84-817E-B3A9493AE2E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TVO_Report_3A", "TVO_Report\TVO_Report_3A.csproj", "{CEFC7255-6599-40EA-BF6F-D09FCCC8242C}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "API Reader", "API Reader\API Reader.vdproj", "{DF32F922-E9B2-37BC-6F10-A721464F4854}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17A5A89D-4C6D-4B84-817E-B3A9493AE2E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17A5A89D-4C6D-4B84-817E-B3A9493AE2E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17A5A89D-4C6D-4B84-817E-B3A9493AE2E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17A5A89D-4C6D-4B84-817E-B3A9493AE2E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEFC7255-6599-40EA-BF6F-D09FCCC8242C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEFC7255-6599-40EA-BF6F-D09FCCC8242C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEFC7255-6599-40EA-BF6F-D09FCCC8242C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEFC7255-6599-40EA-BF6F-D09FCCC8242C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF32F922-E9B2-37BC-6F10-A721464F4854}.Debug|Any CPU.ActiveCfg = Debug
+		{DF32F922-E9B2-37BC-6F10-A721464F4854}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {938AA9F6-2F3C-4659-A934-D6024C358EBB}
+	EndGlobalSection
+EndGlobal

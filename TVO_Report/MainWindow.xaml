@@ -1,0 +1,432 @@
+﻿<Window x:Class="TVO_Report.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Daily Report"
+        Width="900"
+        Height="900">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Toolbar -->
+        <DockPanel Grid.Row="0"
+                   Margin="10">
+
+            <TextBlock Text="Report Date : "
+                       VerticalAlignment="Center"/>
+
+            <DatePicker x:Name="dpDate"
+                        Width="150"
+                        Margin="5,0"/>
+
+            <Button Content="Load Report"
+                    Width="110"
+                    Margin="10,0"
+                    Click="LoadReport_Click"/>
+
+            <Button Content="Export PDF"
+                    Width="110"
+                    Margin="5,0"
+                    Click="Export_Click"/>
+
+            <Button Content="Export CSV"
+                    Width="110"
+                    Margin="5,0"
+                    Click="ExportCSV_Click"
+                    HorizontalAlignment="Left"/>
+
+        </DockPanel>
+
+        <!-- Report -->
+        <TabControl x:Name="tabCtl"
+                    Grid.Row="1"
+                    SelectionChanged="tabCtl_SelectionChanged">
+
+            <!-- ================= Summary Report ================= -->
+
+            <TabItem Header="Summary Report">
+                <ScrollViewer VerticalScrollBarVisibility="Auto"
+                              HorizontalScrollBarVisibility="Auto">
+
+                    <Border Background="#808080" Padding="20">
+
+                        <Border x:Name="ReportPage"
+                                Width="794"
+                                MinHeight="1123"
+                                Background="White"
+                                BorderBrush="White"
+                                BorderThickness="1">
+
+                            <StackPanel Margin="25">
+
+                                <!-- Header -->
+
+                                <TextBlock Text="Daily Silo Monitoring Report"
+                                           FontSize="26"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center"/>
+
+                                <StackPanel Orientation="Horizontal"
+                                            Margin="0,20,0,10">
+
+                                    <TextBlock Text="Report Date : "
+                                               VerticalAlignment="Center"/>
+
+                                    <TextBlock x:Name="txtDate" Text="-"
+                                               VerticalAlignment="Center"/>
+
+                                </StackPanel>
+
+                                <TextBlock FontWeight="Bold"
+                                           Margin="0,0,0,20"><Run Text="Area : 3A"/><LineBreak/><Run/></TextBlock>
+
+                                <!-- ส่วนที่ 1 -->
+
+                                <Border BorderBrush="Black"
+                                        BorderThickness="1"
+                                        Margin="0,10">
+
+                                    <StackPanel>
+
+                                        <Border Background="#DDDDDD"
+                                                BorderBrush="Black"
+                                                BorderThickness="0,0,0,1">
+
+                                            <TextBlock Text="1. Silo Condition Summary"
+                                                       FontWeight="Bold"
+                                                       Padding="5"/>
+
+                                        </Border>
+
+                                        <DataGrid x:Name="dgSilo"
+                                                  AutoGenerateColumns="False"
+                                                  HeadersVisibility="Column"
+                                                  CanUserAddRows="False"
+                                                  FontSize="11"
+                                                  ColumnWidth="*">
+
+                                            <DataGrid.ColumnHeaderStyle>
+                                                <Style TargetType="DataGridColumnHeader">
+                                                    <Setter Property="FontSize" Value="10"/>
+                                                    <Setter Property="FontWeight" Value="SemiBold"/>
+                                                    <Setter Property="Padding" Value="2,4"/>
+                                                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                                                </Style>
+                                            </DataGrid.ColumnHeaderStyle>
+
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Silo" Binding="{Binding Silo}" Width="0.6*"/>
+
+                                                <!-- Temperature -->
+                                                <DataGridTextColumn Header="Avg Temp" Binding="{Binding AvgTemp, StringFormat=N1}" Width="1*"/>
+                                                <DataGridTextColumn Header="Time Min" Binding="{Binding TimeMinTemp}" Width="1*"/>
+                                                <DataGridTextColumn Header="Min Temp" Binding="{Binding MinTemp, StringFormat=N1}" Width="1*"/>
+                                                <DataGridTextColumn Header="Time Max" Binding="{Binding TimeMaxTemp}" Width="1*"/>
+                                                <DataGridTextColumn Header="Max Temp" Binding="{Binding MaxTemp, StringFormat=N1}" Width="1*"/>
+
+                                                <!-- Moisture -->
+                                                <DataGridTextColumn Header="Avg Moist" Binding="{Binding AvgMoisture, StringFormat=N1}" Width="1*"/>
+                                                <DataGridTextColumn Header="Time Min" Binding="{Binding TimeMinMoist}" Width="1*"/>
+                                                <DataGridTextColumn Header="Min Moist" Binding="{Binding MinMoisture, StringFormat=N1}" Width="1*"/>
+                                                <DataGridTextColumn Header="Time Max" Binding="{Binding TimeMaxMoist}" Width="1*"/>
+                                                <DataGridTextColumn Header="Max Moist" Binding="{Binding MaxMoisture, StringFormat=N1}" Width="1*"/>
+                                            </DataGrid.Columns>
+                                        </DataGrid>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <!-- ส่วนที่ 2 -->
+
+                                <Border BorderBrush="Black"
+                                        BorderThickness="1"
+                                        Margin="0,20,0,0">
+
+                                    <StackPanel>
+
+                                        <Border Background="#DDDDDD"
+                                                BorderBrush="Black"
+                                                BorderThickness="0,0,0,1">
+
+                                            <TextBlock Text="2. Weather Station Summary"
+                                                       FontWeight="Bold"
+                                                       Padding="5"/>
+
+                                        </Border>
+
+                                        <DataGrid x:Name="dgWeather"
+                                                  AutoGenerateColumns="True"
+                                                  CanUserAddRows="False"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <!-- ส่วนที่ 3 -->
+
+                                <Border BorderBrush="Black"
+                                        BorderThickness="1"
+                                        Margin="0,20,0,0">
+
+                                    <StackPanel>
+
+                                        <Border Background="#DDDDDD"
+                                                BorderBrush="Black"
+                                                BorderThickness="0,0,0,1">
+
+                                            <TextBlock Text="3. Silo Weight"
+                                                       FontWeight="Bold"
+                                                       Padding="5"/>
+
+                                        </Border>
+
+                                        <DataGrid x:Name="dgLevel"
+                                                  AutoGenerateColumns="False"
+                                                  CanUserAddRows="False">
+
+                                            <DataGrid.Columns>
+                                                <DataGridTextColumn Header="Silo"  Binding="{Binding Silo}"/>
+                                                <DataGridTextColumn Header="14:30" Binding="{Binding Level1430,StringFormat=N1}"/>
+                                                <DataGridTextColumn Header="22:30" Binding="{Binding Level2230,StringFormat=N1}"/>
+                                                <DataGridTextColumn Header="06:30" Binding="{Binding Level0630,StringFormat=N1}"/>
+                                            </DataGrid.Columns>
+
+                                        </DataGrid>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                                <!-- ส่วนที่ 4 -->
+
+                                <Border BorderBrush="Black"
+                                        BorderThickness="1"
+                                        Margin="0,20,0,0">
+
+                                    <StackPanel>
+
+                                        <Border Background="#DDDDDD"
+                                                BorderBrush="Black"
+                                                BorderThickness="0,0,0,1">
+
+                                            <TextBlock Text="4. Fan Operation"
+                                                       FontWeight="Bold"
+                                                       Padding="5"/>
+
+                                        </Border>
+
+                                        <DataGrid x:Name="dgFan"
+                                                  AutoGenerateColumns="True"
+                                                  CanUserAddRows="False"
+                                                  Loaded="dgFan_Loaded"/>
+
+                                    </StackPanel>
+
+                                </Border>
+
+                            </StackPanel>
+
+                        </Border>
+
+                    </Border>
+
+                </ScrollViewer>
+            </TabItem>
+
+            <!-- ================= Detail Report ================= -->
+
+            <TabItem Header="Sensor Detail">
+                <!-- เดิม DataGrid อยู่ใน ScrollViewer + StackPanel ทำให้ virtualization ปิด
+                     -> WPF สร้างทุกแถว (หลายหมื่นแถว) กิน RAM มากและค้าง
+                     ตอนนี้ให้ DataGrid scroll เอง และสร้างเฉพาะแถวที่เห็นบนจอ -->
+                <Border Background="#808080" Padding="20">
+
+                    <Border x:Name="DetailReportPage"
+                            Width="794"
+                            Background="White"
+                            BorderBrush="White"
+                            BorderThickness="1">
+
+                        <Grid Margin="15">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <TextBlock Grid.Row="0"
+                                       Text="Daily Sensor Detail Report"
+                                       FontSize="26"
+                                       FontWeight="Bold"
+                                       HorizontalAlignment="Center"
+                                       Margin="0,0,0,15"/>
+
+                            <DataGrid x:Name="dgDetail"
+                                      Grid.Row="1"
+                                      AutoGenerateColumns="False"
+                                      CanUserAddRows="False"
+                                      IsReadOnly="True"
+                                      FontSize="10"
+                                      ColumnWidth="*"
+                                      EnableRowVirtualization="True"
+                                      EnableColumnVirtualization="True"
+                                      VirtualizingPanel.IsVirtualizing="True"
+                                      VirtualizingPanel.VirtualizationMode="Recycling"
+                                      VirtualizingPanel.ScrollUnit="Item"
+                                      ScrollViewer.CanContentScroll="True"
+                                      VerticalScrollBarVisibility="Auto">
+                                <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Silo"   Binding="{Binding Silo}"   Width="0.8*"/>
+                                        <DataGridTextColumn Header="Time"   Binding="{Binding Time}"   Width="1.2*"/>
+                                        <DataGridTextColumn Header="Sensor" Binding="{Binding Sensor}" Width="1.5*"/>
+
+                                        <DataGridTextColumn Header="S1" Binding="{Binding C1, StringFormat=N1}" Width="1*"/>
+                                        <DataGridTextColumn Header="S2" Binding="{Binding C2, StringFormat=N1}" Width="1*"/>
+                                        <DataGridTextColumn Header="S3" Binding="{Binding C3, StringFormat=N1}" Width="1*"/>
+                                        <DataGridTextColumn Header="S4" Binding="{Binding C4, StringFormat=N1}" Width="1*"/>
+                                        <DataGridTextColumn Header="S5" Binding="{Binding C5, StringFormat=N1}" Width="1*"/>
+                                        <DataGridTextColumn Header="S6" Binding="{Binding C6, StringFormat=N1}" Width="1*"/>
+                                        <DataGridTextColumn Header="S7" Binding="{Binding C7, StringFormat=N1}" Width="1*"/>
+                                        <DataGridTextColumn Header="S8" Binding="{Binding C8, StringFormat=N1}" Width="1*"/>
+                                    </DataGrid.Columns>
+                            </DataGrid>
+                        </Grid>
+                    </Border>
+
+                </Border>
+            </TabItem>
+
+            <!-- ================= Monitor Log ================= -->
+            <TabItem Header="Monitor system logs">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!-- ตัวกรอง -->
+                    <WrapPanel Grid.Row="0" Margin="0,0,0,6">
+                        <TextBlock Text="จาก" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                        <DatePicker x:Name="dpLogFrom" Width="120" Margin="0,0,8,0"/>
+                        <TextBlock Text="ถึง" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                        <DatePicker x:Name="dpLogTo" Width="120" Margin="0,0,12,0"/>
+
+                        <TextBlock Text="Category" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                        <ComboBox x:Name="cbLogCategory" Width="85" Margin="0,0,8,0"/>
+                        <TextBlock Text="Level" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                        <ComboBox x:Name="cbLogLevel" Width="75" Margin="0,0,8,0"/>
+                        <TextBlock Text="Source" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                        <ComboBox x:Name="cbLogSource" Width="85" Margin="0,0,8,0"/>
+                    </WrapPanel>
+
+                    <WrapPanel Grid.Row="1" Margin="0,0,0,8">
+                        <TextBlock Text="ค้นหา" VerticalAlignment="Center" Margin="0,0,4,0"/>
+                        <TextBox x:Name="txtLogSearch" Width="220" Margin="0,0,10,0"
+                                 VerticalContentAlignment="Center" KeyDown="txtLogSearch_KeyDown"/>
+                        <Button Content="Load Log" Width="100" Margin="0,0,8,0" Click="LoadLog_Click"/>
+                        <Button Content="Export Log CSV" Width="110" Click="ExportLogCsv_Click"/>
+                        <TextBlock x:Name="txtLogInfo" VerticalAlignment="Center" Margin="12,0,0,0"
+                                   Foreground="#555" Text="ช่วงเวลา 08:00 ของวันเริ่ม ถึง 08:00 ของวันถัดจากวันสิ้นสุด"/>
+                    </WrapPanel>
+
+                    <!-- สรุป -->
+                    <ItemsControl x:Name="icLogSummary" Grid.Row="2" Margin="0,0,0,8">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#CCCCCC" BorderThickness="1" CornerRadius="4"
+                                        Padding="8,4" Margin="0,0,6,6" MinWidth="120" Background="{Binding Background}">
+                                    <StackPanel>
+                                        <TextBlock Text="{Binding Title}" FontSize="11" Foreground="#555"/>
+                                        <TextBlock Text="{Binding Value}" FontSize="14" FontWeight="SemiBold"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+
+                    <!-- ตาราง log -->
+                    <DataGrid x:Name="dgLog"
+                              Grid.Row="3"
+                              AutoGenerateColumns="False"
+                              CanUserAddRows="False"
+                              IsReadOnly="True"
+                              FontSize="11"
+                              HeadersVisibility="Column"
+                              EnableRowVirtualization="True"
+                              EnableColumnVirtualization="True"
+                              VirtualizingPanel.IsVirtualizing="True"
+                              VirtualizingPanel.VirtualizationMode="Recycling"
+                              ScrollViewer.CanContentScroll="True">
+                        <DataGrid.RowStyle>
+                            <Style TargetType="DataGridRow">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Level}" Value="ERROR">
+                                        <Setter Property="Background" Value="#FFD6D6"/>
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Level}" Value="WARN">
+                                        <Setter Property="Background" Value="#FFF4C2"/>
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </DataGrid.RowStyle>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Time"     Binding="{Binding Time, StringFormat='dd/MM/yy HH:mm:ss'}" Width="125"/>
+                            <DataGridTextColumn Header="Category" Binding="{Binding Category}" Width="70"/>
+                            <DataGridTextColumn Header="Level"    Binding="{Binding Level}"    Width="55"/>
+                            <DataGridTextColumn Header="Source"   Binding="{Binding Source}"   Width="110"/>
+                            <DataGridTextColumn Header="Event"    Binding="{Binding Event}"    Width="150"/>
+                            <DataGridTextColumn Header="Detail"   Binding="{Binding Detail}"   Width="*"/>
+                            <DataGridTextColumn Header="Duration" Binding="{Binding Duration}" Width="70"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <!-- ================= Loading Popup ================= -->
+        <Border x:Name="LoadingOverlay"
+                Grid.RowSpan="2"
+                Panel.ZIndex="100"
+                Background="#80000000"
+                Visibility="Collapsed">
+
+            <Border Background="White"
+                    CornerRadius="8"
+                    Padding="30,20"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="15" ShadowDepth="2" Opacity="0.4"/>
+                </Border.Effect>
+
+                <StackPanel>
+                    <TextBlock x:Name="txtLoading"
+                               Text="กำลังโหลดข้อมูล..."
+                               FontSize="16"
+                               FontWeight="SemiBold"
+                               HorizontalAlignment="Center"/>
+                    <TextBlock Text="กรุณารอสักครู่"
+                               Foreground="Gray"
+                               Margin="0,4,0,0"
+                               HorizontalAlignment="Center"/>
+                    <ProgressBar IsIndeterminate="True"
+                                 Width="240"
+                                 Height="10"
+                                 Margin="0,12,0,0"/>
+                </StackPanel>
+            </Border>
+        </Border>
+
+    </Grid>
+
+</Window>

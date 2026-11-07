@@ -1,0 +1,335 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>PdfSharp.System</name>
+    </assembly>
+    <members>
+        <member name="T:PdfSharp.Diagnostics.DebuggerDisplayHelper">
+            <summary>
+            Try to fix a ReSharper issue.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Diagnostics.DebuggerDisplayHelper.FixReSharperBugInConnectionWithCultureInfo_numInfo">
+            <summary>
+            Prevent ReSharper from saying:
+            Evaluation of method {MyType}.get_DebuggerDisplay requires reading field System.Globalization.CultureInfo._numInfo, which is not available in this context.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Diagnostics.DebuggerDisplayHelper.DebugNumberFormat">
+            <summary>
+            Number format DebuggerDisplay.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Diagnostics.DebuggerDisplayHelper.InvariantCulture">
+            <summary>
+            Get my own copy of InvariantCulture that ReSharper can use.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.DotNetFrameworkExtensions.BigIntegerExtensions">
+            <summary>
+            PDFsharp extensions for .NET types.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.BigIntegerExtensions.CreateBigInteger(System.ReadOnlySpan{System.Byte},System.Boolean,System.Boolean)">
+            <inheritdoc cref="M:PdfSharp.DotNetFrameworkExtensions.BigIntegerExtensions.&lt;G&gt;$9CFAEDA43E3429DBE35978030E0B8E1A.CreateBigInteger(System.ReadOnlySpan{System.Byte},System.Boolean,System.Boolean)"/>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.BigIntegerExtensions.&lt;G&gt;$9CFAEDA43E3429DBE35978030E0B8E1A.CreateBigInteger(System.ReadOnlySpan{System.Byte},System.Boolean,System.Boolean)">
+            <summary>
+            Implements the .NET 6 BigInteger constructor missing in .NET framework 4.6.2.
+            Initializes a new instance of the BigInteger structure using the values in a read-only span of bytes, and optionally indicating the signing encoding and the endianness byte order.
+            </summary>
+            <param name="value"></param>
+            <param name="isUnsigned"></param>
+            <param name="isBigEndian"></param>
+        </member>
+        <member name="T:PdfSharp.DotNetFrameworkExtensions.ConcurrentDictionaryExtensions">
+            <summary>
+            PDFsharp extensions for .NET types.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.DotNetFrameworkExtensions.ConcurrentDictionaryExtensions.&lt;G&gt;$310EC761CC0CBFE9938D5B432F938138`2.&lt;M&gt;$9F216ED68C1F082F5F36F99465BD14CB">
+            <summary>
+            Extensions for ConcurrentDictionary.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.DotNetFrameworkExtensions.DictionaryExtensions">
+            <summary>
+            Extensions for Dictionary.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.DictionaryExtensions.TryAdd``2(System.Collections.Generic.Dictionary{``0,``1},``0,``1)">
+            <inheritdoc cref="M:PdfSharp.DotNetFrameworkExtensions.DictionaryExtensions.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.TryAdd(`0,`1)"/>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.DictionaryExtensions.&lt;G&gt;$E42DFDC8D24EBEA929FB244FBCDF3D61`2.TryAdd(`0,`1)">
+            <summary>
+            Implementation of TryAdd.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.DotNetFrameworkExtensions.EnumExtensions">
+            <summary>
+            PDFsharp extensions for .NET types.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.EnumExtensions.Parse``1(System.String,System.Boolean)">
+            <inheritdoc cref="M:PdfSharp.DotNetFrameworkExtensions.EnumExtensions.&lt;G&gt;$8E5C3F0AE356A7A1CAD4B372112D6A6D.Parse``1(System.String,System.Boolean)"/>
+        </member>
+        <member name="T:PdfSharp.DotNetFrameworkExtensions.EnumExtensions.&lt;G&gt;$8E5C3F0AE356A7A1CAD4B372112D6A6D.&lt;M&gt;$9CE985ACD695B24F7EBC7691909E2B7B">
+            <summary>
+            Extensions for Enum.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.EnumExtensions.&lt;G&gt;$8E5C3F0AE356A7A1CAD4B372112D6A6D.Parse``1(System.String,System.Boolean)">
+            <summary>
+            Brings "Parse&lt;T&gt;(string)" to Enum.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.DotNetFrameworkExtensions.StringExtensions">
+            <summary>
+            PDFsharp extensions for .NET types.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.StringExtensions.get_NullOrEmpty(System.String)">
+            <inheritdoc cref="P:PdfSharp.DotNetFrameworkExtensions.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.NullOrEmpty"/>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.StringExtensions.StartsWith(System.String,System.Char)">
+            <inheritdoc cref="M:PdfSharp.DotNetFrameworkExtensions.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.StartsWith(System.Char)"/>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.StringExtensions.EndsWith(System.String,System.Char)">
+            <inheritdoc cref="M:PdfSharp.DotNetFrameworkExtensions.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.EndsWith(System.Char)"/>
+        </member>
+        <member name="T:PdfSharp.DotNetFrameworkExtensions.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.&lt;M&gt;$07432F514CDD0D7CB2342070C1234ECC">
+            <summary>
+            Extensions for String.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.DotNetFrameworkExtensions.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.NullOrEmpty">
+            <summary>
+            The functionality I missed since C# 1.0.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.StartsWith(System.Char)">
+            <summary>
+            Brings "bool StartsWith(char value)" to String class.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.DotNetFrameworkExtensions.StringExtensions.&lt;G&gt;$34505F560D9EACF86A87F3ED1F85E448.EndsWith(System.Char)">
+            <summary>
+            Brings "bool EndsWith(char value)" to String class.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.Threading.Locks">
+            <summary>
+            Static locking functions to make PDFsharp thread save.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Internal.AnsiEncoding">
+            <summary>
+            An encoder use for PDF WinAnsi encoding.
+            It is by design not to use CodePagesEncodingProvider.Instance.GetEncoding(1252).
+            However, AnsiEncoding is equivalent to Windows-1252 (CP-1252),
+            see https://en.wikipedia.org/wiki/Windows-1252
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.AnsiEncoding.GetByteCount(System.Char[],System.Int32,System.Int32)">
+            <summary>
+            Gets the byte count.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.AnsiEncoding.GetBytes(System.Char[],System.Int32,System.Int32,System.Byte[],System.Int32)">
+            <summary>
+            Gets the bytes.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.AnsiEncoding.GetCharCount(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Gets the character count.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.AnsiEncoding.GetChars(System.Byte[],System.Int32,System.Int32,System.Char[],System.Int32)">
+            <summary>
+            Gets the chars.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.AnsiEncoding.GetMaxByteCount(System.Int32)">
+            <summary>
+            When overridden in a derived class, calculates the maximum number of bytes produced by encoding the specified number of characters.
+            </summary>
+            <param name="charCount">The number of characters to encode.</param>
+            <returns>
+            The maximum number of bytes produced by encoding the specified number of characters.
+            </returns>
+        </member>
+        <member name="M:PdfSharp.Internal.AnsiEncoding.GetMaxCharCount(System.Int32)">
+            <summary>
+            When overridden in a derived class, calculates the maximum number of characters produced by decoding the specified number of bytes.
+            </summary>
+            <param name="byteCount">The number of bytes to decode.</param>
+            <returns>
+            The maximum number of characters produced by decoding the specified number of bytes.
+            </returns>
+        </member>
+        <member name="P:PdfSharp.Internal.AnsiEncoding.Encoder">
+            <summary>
+            Gets the ANSI encoder singleton.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.AnsiEncoding.IsAnsi(System.Char)">
+            <summary>
+            Indicates whether the specified Unicode BMP character is available in the ANSI code page 1252.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.AnsiEncoding.IsAnsi(System.String)">
+            <summary>
+            Indicates whether the specified string is available in the ANSI code page 1252.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.AnsiEncoding.IsAnsi(System.Int32[])">
+            <summary>
+            Indicates whether all code points in the specified array are available in the ANSI code page 1252.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Internal.AnsiEncoding.UnicodeToAnsi(System.Char,System.Char)">
+            <summary>
+            Maps Unicode to ANSI (CP-1252).
+            Return an ANSI code in a char or the value of parameter nonAnsi
+            if Unicode value has no ANSI counterpart.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Internal.AnsiEncoding.AnsiToUnicode">
+            <summary>
+            Maps WinAnsi to Unicode characters.
+            The 5 undefined ANSI value 81, 8D, 8F, 90, and 9D are mapped to
+            the C1 control code. This is the same as .NET handles them.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.IO_dummy.StreamToMemoryReader">
+            <summary>
+            Reads any stream into a Memory&lt;byte&gt;.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.IO_dummy.StreamToMemoryReader.#ctor(System.IO.Stream)">
+            <summary>
+            Reads any stream into a Memory&lt;byte&gt;.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.IO_dummy.StreamToMemoryReader.ReadToEnd">
+            <summary>
+            Reads a stream to the end.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Logging.LogCategory">
+            <summary>
+            Defines the logging categories of PDFsharp.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Logging.LogCategory.PdfSharp">
+            <summary>
+            Default category for standard logger.
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Logging.LogHost">
+            <summary>
+            Provides a single global logger factory used for logging in PDFsharp.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Logging.LogHost.Factory">
+            <summary>
+            Gets or sets the current global logger factory singleton for PDFsharp.
+            Every logger used in PDFsharp code is created by this factory.
+            You can change the logger factory at any one time you want.
+            If no factory is provided the NullLoggerFactory is used as the default.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Logging.LogHost.Logger">
+            <summary>
+            Gets the global PDFsharp default logger.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Logging.LogHost.CreateLogger(System.String)">
+            <summary>
+            Creates a logger with a given category name.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Logging.LogHost.CreateLogger``1">
+            <summary>
+            Creates a logger with the full name of the given type as category name.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Logging.LogHost.ResetLogging">
+            <summary>
+            Resets the logging host to the state it has immediately after loading the PDFsharp library.
+            </summary>
+            <remarks>
+            This function is only useful in unit test scenarios and not intended to be called from application code.
+            </remarks>
+        </member>
+        <member name="T:PdfSharp.Pdf.Signatures.PdfMessageDigestType">
+            <summary>
+            Specifies the algorithm used to generate the message digest.
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Pdf.Signatures.PdfMessageDigestType.SHA1">
+            <summary>
+            (PDF 1.3)
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Pdf.Signatures.PdfMessageDigestType.SHA256">
+            <summary>
+            (PDF 1.6)
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Pdf.Signatures.PdfMessageDigestType.SHA384">
+            <summary>
+            (PDF 1.7)
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Pdf.Signatures.PdfMessageDigestType.SHA512">
+            <summary>
+            (PDF 1.7)
+            </summary>
+        </member>
+        <member name="F:PdfSharp.Pdf.Signatures.PdfMessageDigestType.RIPEMD160">
+            <summary>
+            (PDF 1.7)
+            </summary>
+        </member>
+        <member name="T:PdfSharp.Pdf.Signatures.IDigitalSigner">
+            <summary>
+            Interface for classes that generate digital signatures.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.Pdf.Signatures.IDigitalSigner.CertificateName">
+            <summary>
+            Gets a human-readable name of the used certificate.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Pdf.Signatures.IDigitalSigner.GetSignatureSizeAsync">
+            <summary>
+            Gets the size of the signature in bytes.
+            The size is used to reserve space in the PDF file that is later filled with the signature.
+            </summary>
+        </member>
+        <member name="M:PdfSharp.Pdf.Signatures.IDigitalSigner.GetSignatureAsync(System.IO.Stream)">
+            <summary>
+            Gets the signatures of the specified stream.
+            </summary>
+            <param name="stream"></param>
+        </member>
+        <member name="T:PdfSharp.PlugIn.IPdfSharpPlugInV0">
+            <summary>
+            Provisionally plug-in interface.
+            Internal use only.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.PlugIn.IPdfSharpPlugInV0.ID">
+            <summary>
+            Gets the GUID of the plug-in.
+            </summary>
+        </member>
+        <member name="P:PdfSharp.PlugIn.IPdfSharpPlugInV0.Name">
+            <summary>
+            Gets the name of the plug-in.
+            </summary>
+        </member>
+    </members>
+</doc>
